@@ -11,4 +11,5 @@ But In order to deploy lambdas from your local environment to any AWS Stage, you
 
 # test
 
-# test
+copy the url below and open in the browser
+https://x1qig3dtci.execute-api.us-east-1.amazonaws.com/dev/time
