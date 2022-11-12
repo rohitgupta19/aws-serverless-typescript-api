@@ -1,14 +1,13 @@
-export interface Todo {
-  time: string;
-  region: string;
-}
+const isoDateService = require('../../service/isoDateTimeService');
+const awsHelper = require('../helper/awsHelper');
 
 export async function handler(): Promise<any> {
+  const isoDateTime = isoDateService.IsoDateTime();
+  const region = awsHelper.getCurrentAWSRegion();
   const resp = {
-    timestamp: '122',
-    region: 'ap-southeast-2'
+    timestamp: isoDateTime,
+    region: region
   };
-  console.log('returning response', resp);
   return {
     statusCode: 200,
     body: JSON.stringify(resp)
