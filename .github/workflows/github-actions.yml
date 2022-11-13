@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: npm install
       - name: Build the project
         run: npm run build
       - name: serverless deploy -s dev
