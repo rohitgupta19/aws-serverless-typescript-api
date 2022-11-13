@@ -36,7 +36,7 @@ But In order to deploy lambdas from your local environment to any AWS Stage, you
 
 copy the url below and open in the browser and it should return the aws_region and date time in ISO format.
 
-https://x1qig3dtci.execute-api.us-east-1.amazonaws.com/dev/time
+https://lwwmx177gg.execute-api.us-east-1.amazonaws.com/dev/time
 
 or curl the below command from the command line
-curl https://x1qig3dtci.execute-api.us-east-1.amazonaws.com/dev/time
+curl https://lwwmx177gg.execute-api.us-east-1.amazonaws.com/dev/time
