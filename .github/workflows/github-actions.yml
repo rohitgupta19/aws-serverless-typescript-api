@@ -3,7 +3,7 @@ name: Deploy serverless typescript api on aws
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   deploy:
