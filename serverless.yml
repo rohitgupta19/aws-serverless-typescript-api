@@ -1,26 +1,11 @@
 service: aws-sls-typescript-api
 
-plugins:
-  - serverless-offline
-
-package:
-  individually: false
-
-  stages:
-    - local
-    - dev
-    - prod
-  stage: ${opt:stage, 'local'}
-  serverless-offline:
-    port: 5000
-    host: 0.0.0.0
-
 provider:
   name: aws
   runtime: nodejs14.x
   #stage: ${self:custom.stage}
   #region: ${file(env.yml):${self:custom.stage}.env.awsRegion}
-  region: "us-east-1"
+  region: 'us-east-1'
   memorySize: 512
 
 functions:
