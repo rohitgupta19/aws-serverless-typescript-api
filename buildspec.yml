@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+  parameter-store:
+    GITHUB_KEY: /CodeBuild/Github
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - mkdir -p ~/.ssh
+      - echo "$GITHUB_KEY" > ~/.ssh/id_rsa
+      - export GITHUB_KEY=REDACTED
+      - chmod 600 ~/.ssh/id_rsa
+      - ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
+      - printenv
+      - npm install
+  build:
+    commands:
+      - SLS_DEBUG=* npx sls package-push -s $BUILD_STAGE --region=$AWS_REGION
+      - node ./scripts/format-template-config.js
+  post_build:
+    commands:
+      - echo Entered the post_build phase..
+      - npx sls prune -n 10 -s $BUILD_STAGE --region=$AWS_REGION
+
+artifacts:
+  files:
+    - .serverless/cloudformation-template-update-stack.json
+    - .serverless/cloudformation-template-config.json
+
