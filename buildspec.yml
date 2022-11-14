@@ -18,15 +18,10 @@ phases:
       - npm install
   build:
     commands:
-      - SLS_DEBUG=* npx sls package-push -s $BUILD_STAGE --region=$AWS_REGION
+      - SLS_DEBUG=* npx sls serverless deploy -s dev --region=$AWS_REGION
       - node ./scripts/format-template-config.js
-  post_build:
-    commands:
-      - echo Entered the post_build phase..
-      - npx sls prune -n 10 -s $BUILD_STAGE --region=$AWS_REGION
 
 artifacts:
   files:
     - .serverless/cloudformation-template-update-stack.json
     - .serverless/cloudformation-template-config.json
-
