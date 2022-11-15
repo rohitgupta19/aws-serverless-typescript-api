@@ -15,13 +15,12 @@ phases:
       - chmod 600 ~/.ssh/id_rsa
       - ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
       - printenv
+      - npm install -g serverless
       - npm install
   build:
     commands:
-      - SLS_DEBUG=* npx sls serverless deploy -s dev --region=$AWS_REGION
-      - node ./scripts/format-template-config.js
+      - serverless deploy -s $STAGE_NAME --region=$AWS_REGION
 
-artifacts:
-  files:
-    - .serverless/cloudformation-template-update-stack.json
-    - .serverless/cloudformation-template-config.json
+cache:
+  paths:
+    - node_modules

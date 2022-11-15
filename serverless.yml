@@ -3,8 +3,7 @@ service: aws-sls-typescript-api
 provider:
   name: aws
   runtime: nodejs14.x
-  #stage: ${self:custom.stage}
-  #region: ${file(env.yml):${self:custom.stage}.env.awsRegion}
+  stage: 'dev'
   region: 'us-east-1'
   memorySize: 512
 
