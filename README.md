@@ -27,7 +27,7 @@ $ npm run prettier
 # Deployment
 
 There is a CI/CD Pipeline going to set up to continue deploy to AWS Environment once you push changes to Github Repo.
-`Details will be updated soon`
+`Github Actions are configured to deploy the code each time there is a commit or PR to master branch.` Delaoyment config is defined in .github/worflows/github-actions.yml
 
 But In order to deploy lambdas from your local environment to any AWS Stage, you need to have AWS CLI configured locally (aws configure) and can execute below command
 
