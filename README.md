@@ -1,4 +1,5 @@
-aws-serverless-typescript-api
+## aws-serverless-typescript-api
+
 This is a serverless app in typescript to deploy a lambda function and return api response through api gateway
 
 ## Installation
