@@ -16,9 +16,9 @@ There are few options to build this api.
 
 I have made an assumption that this api is not required to be running always and can served on demand so to save complexity on building it out and cost of running it on the cloud I have choose developing and deploying this service as a serverless project since its quick to build and maintain it and also due to the low complexity of the business logic.
 
-With Lambda as a function deploying, scaling is also taken care by the cloud provider and we can adjust the concurrent execution in future based on the traffic.
+With Lambda as a function deploying, scaling is also taken care by the cloud provider and we can adjust the concurrent execution(Lambda), API Limit per second (API Gateway) and Read Write capacity (Serverless RDS/Dynamo DB) in future based on the traffic.
 
-For Database we can also choose any serverless Aurora RDS or Dynomo or any other Cache layer which will scale as well if needed.
+For Database we can also choose any serverless Aurora RDS or Dynomo along with any other Cache layer(Elastic Cache) which will scale as well if needed and Cache the data helps reducing any DB calls to improve latency.
 
 ## Deployment options
 
